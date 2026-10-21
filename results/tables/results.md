@@ -1,0 +1,26 @@
+| Algorithm | Graph | V | E | Avg time (us) | Operation counts |
+|---|---|---|---|---|---|
+| Kruskal | Small | 10 | 30 | 41.86 | examined=15, sortCmp=109, dsuOps=45, weight=134 |
+| Prim | Small | 10 | 30 | 50.34 | examined=60, heapCmp=204, heapOps=60, weight=134 |
+| TopoSort (DAG) | Small | 10 | 30 | 26.60 | examined=30, isDag=true, processed=10 |
+| TopoSort (cyclic) | Small | 10 | 30 | 4.58 | examined=0, isDag=false, processed=0 |
+| SCC (Tarjan) | Small | 10 | 30 | 22.30 | examined=30, components=1 |
+| Dijkstra | Small | 10 | 30 | 24.86 | examined=60, relaxations=17, pushes=18, pops=18, cmp=79 |
+| Kruskal | Medium | 100 | 500 | 450.74 | examined=292, sortCmp=3844, dsuOps=876, weight=1301 |
+| Prim | Medium | 100 | 500 | 583.38 | examined=1000, heapCmp=7661, heapOps=1000, weight=1301 |
+| TopoSort (DAG) | Medium | 100 | 500 | 213.62 | examined=500, isDag=true, processed=100 |
+| TopoSort (cyclic) | Medium | 100 | 500 | 81.44 | examined=15, isDag=false, processed=2 |
+| SCC (Tarjan) | Medium | 100 | 500 | 62.54 | examined=500, components=4 |
+| Dijkstra | Medium | 100 | 500 | 891.02 | examined=1000, relaxations=197, pushes=198, pops=198, cmp=2386 |
+| Kruskal | Large | 1000 | 5000 | 2367.56 | examined=3629, sortCmp=50356, dsuOps=10887, weight=12002 |
+| Prim | Large | 1000 | 5000 | 1421.90 | examined=10000, heapCmp=110757, heapOps=10000, weight=12002 |
+| TopoSort (DAG) | Large | 1000 | 5000 | 479.58 | examined=5000, isDag=true, processed=1000 |
+| TopoSort (cyclic) | Large | 1000 | 5000 | 83.40 | examined=46, isDag=false, processed=9 |
+| SCC (Tarjan) | Large | 1000 | 5000 | 480.24 | examined=5000, components=18 |
+| Dijkstra | Large | 1000 | 5000 | 1137.48 | examined=10000, relaxations=1945, pushes=1946, pops=1946, cmp=35848 |
+
+Generation notes:
+
+- Small: undirected connected=true, Kruskal weight=134, Prim weight=134, equal=true | random directed graph: 1 SCCs (has cycles: true) | DAG graph is acyclic: true
+- Medium: undirected connected=true, Kruskal weight=1301, Prim weight=1301, equal=true | random directed graph: 4 SCCs (has cycles: true) | DAG graph is acyclic: true
+- Large: undirected connected=true, Kruskal weight=12002, Prim weight=12002, equal=true | random directed graph: 18 SCCs (has cycles: true) | DAG graph is acyclic: true
